@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Game Inventory</h1>
+    <ul class="list-group">
+        {% for game in games %}
+            <li class="list-group-item">
+                <strong>{{ game.title }}</strong> - {{ game.description }}
+                {% if game.is_available %}
+                    <span class="badge badge-success">Available</span>
+                {% else %}
+                    <span class="badge badge-danger">Not Available</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
